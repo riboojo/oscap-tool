@@ -28,5 +28,13 @@ class OscapDatabase(object):
         self.cursor.execute('SELECT scan_id, timestamp FROM scans')
         return self.cursor.fetchall()
 
+    def getReportPath(self, scan_id):
+        self.cursor.execute('SELECT report_path FROM scans WHERE scan_id = ?', (scan_id,))
+        row = self.cursor.fetchone()
+        if row:
+            return row[0]
+        else:
+            return None
+
     def close(self):
         self.connection.close()

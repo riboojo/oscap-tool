@@ -22,8 +22,22 @@ class OscapScanner(object):
         allScans = self.db.getScans()
         self.db.close()
 
-        for scan_id, timestamp in allScans:
-            print(f'ID #{scan_id} generated on {timestamp}')
+        if allScans:
+            for scan_id, timestamp in allScans:
+                print(f'ID #{scan_id} generated on {timestamp}')
+        else:
+            print(f'There are no entries in the history database')
+
+    def consultReport(self, id_consult):
+        self.db.open()
+        report_path = self.db.getReportPath(id_consult)
+        self.db.close()
+
+        if report_path:
+            with open(report_path, 'r') as report:
+                print(report.read())
+        else:
+            print(f'There is no ID #{id_consult} in the history database')
 
     def executeFeature(self, command, id_consult=None, id_compare=None):
         if command == 'scan':
@@ -31,7 +45,7 @@ class OscapScanner(object):
         elif command == 'history':
             self.readHistory()
         elif command == 'consult':
-            print(f"TODO: print report for #{id_consult}")
+            self.consultReport(id_consult)
         elif command == 'compare':
             print(f"TODO: print comparison between #{id_consult} and #{id_compare}")
         else:
