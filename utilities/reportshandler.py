@@ -1,23 +1,29 @@
 import xml.etree.ElementTree as et
 
 class OscapReports(object):
+    # Function to summarize a report by saving general data
     def parse_xml(self, xml_report, id_report):
         tree = et.parse(xml_report)
         root = tree.getroot()
 
+        # Dictionary to store summarized scan data
         summary = {}
+        # List to store detailed scan results data
         detailed_results = []
 
+        # Dictionary used to store overall scan results
         overall_results = {
             'Passed' : 0,
             'Failed' : 0,
             'NotApplicable' : 0
         }
 
+        # Namespace used by the ssg-ol8-xccdf.xml format
         ns = {
             'default': 'http://checklists.nist.gov/xccdf/1.2'
         }
 
+        # Perform the xml parsing to get the desired data from the scan report
         title = root.find('.//default:title', namespaces=ns)
         description = root.find('.//default:description', namespaces=ns)
         test_result = root.find('.//default:TestResult', namespaces=ns)
@@ -40,6 +46,7 @@ class OscapReports(object):
                     'Result' : result.text
                 }
 
+                # Fill the ovarall results with the results for each checked rule
                 if result.text == 'pass':
                     overall_results['Passed'] += 1
                 elif result.text == 'fail':
@@ -60,6 +67,7 @@ class OscapReports(object):
 
         return summary, overall_results, detailed_results
 
+    # Function to print a scan report in a cool way
     def print_report(self, summary, results):
         len_header = len(summary['title']) + 8
 
@@ -75,6 +83,7 @@ class OscapReports(object):
                 print(f"{key}: {value}")
             print("======================================================")
 
+    # Function to get the main differences between the results of two reports
     def compare_reports(self, results1, results2):
         differences = []
         keys = ['Rule','Severity','Result']
@@ -95,6 +104,7 @@ class OscapReports(object):
 
         return differences
     
+    # Function to print the differences of to scan reports in a cool way
     def print_differences(self, overall1, overall2, differences):
         if not differences:
             return "No differences found"
@@ -113,6 +123,7 @@ class OscapReports(object):
 
         print(output)
 
+    # Function to print the general data of a couple of scan report
     def print_overall(self, overall1, overall2):
         all_keys = set(list(overall1.keys()) + list(overall2.keys()))
 
@@ -133,4 +144,3 @@ class OscapReports(object):
             print(row)
 
         print(separator)
-
