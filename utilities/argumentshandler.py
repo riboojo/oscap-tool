@@ -1,14 +1,23 @@
-from utilities.scannerhandler import OscapScanner
+"""
+    OscapArguments:
+        Handle the parsing of arguments next to oscaptool execution or print a menu if none provided
+"""
+
 import argparse
+from utilities.scannerhandler import OscapScanner
 
 class OscapArguments(object):
-    # Constructor for OscapArguments class
+    """ Handles the parsing of arguments """
+
     def __init__(self):
+        """ Constructor for OscapArguments class """
+
         # Instantiate an OscapScanner to handle main functionality
         self.scanner = OscapScanner()
 
-    # Function to start the arguments parser and handle if arguments were given or not
     def start(self):
+        """ Function to start the arguments parser and handle if arguments were given or not """
+
         parser = argparse.ArgumentParser(description='Simple command line tool for regular openscap scans')
 
         # Add the optional arguments to the parser
@@ -23,42 +32,45 @@ class OscapArguments(object):
 
         if not command:
             # If no arguments given then print the menu
-            self.printMenu()
+            self.print_menu()
         elif command=='consult' and not id_consult:
             # If no IDs given then print the consult menu
-            self.printMenuConsult()
+            self.print_menu_consult()
         elif command=='compare' and not id_compare:
             # If no IDs given then print the compare menu
-            self.printMenuCompare()
+            self.print_menu_compare()
         else:
-            self.scanner.executeFeature(command, id_consult, id_compare)
+            self.scanner.execute_feature(command, id_consult, id_compare)
 
-    # Function to print the main menu in case no arguments given
-    def printMenu(self):
-        print(f"Select one of the following commands:\n1: scan\n2: history\n3: consult\n4: compare")
+    def print_menu(self):
+        """ Function to print the main menu in case no arguments given """
+
+        print("Select one of the following commands:\n1: scan\n2: history\n3: consult\n4: compare")
         selection = input("> ")
 
         if selection == '1':
-            self.scanner.executeFeature('scan')
+            self.scanner.execute_feature('scan')
         elif selection == '2':
-            self.scanner.executeFeature('history')
+            self.scanner.execute_feature('history')
         elif selection == '3':
-            self.printMenuConsult()
+            self.print_menu_consult()
         elif selection == '4':
-            self.printMenuCompare()
+            self.print_menu_compare()
         else:
-            print(f"Please enter a valid option")
+            print("Please enter a valid option")
 
-    # Function to print the consult menu in case no id given
-    def printMenuConsult(self):
-        print(f"Enter an ID to consult its report")
-        id_consult = input("> ")
-        self.scanner.executeFeature('consult', id_consult)
+    def print_menu_consult(self):
+        """ Function to print the consult menu in case no id given """
 
-    # Function to print the compare menu in case no id given
-    def printMenuCompare(self):
-        print(f"Enter the first ID to compare")
+        print("Enter an ID to consult its report")
         id_consult = input("> ")
-        print(f"Enter the second ID to compare")
+        self.scanner.execute_feature('consult', id_consult)
+
+    def print_menu_compare(self):
+        """ Function to print the compare menu in case no id given """
+
+        print("Enter the first ID to compare")
+        id_consult = input("> ")
+        print("Enter the second ID to compare")
         id_compare = input("> ")
-        self.scanner.executeFeature('compare', id_consult, id_compare)
+        self.scanner.execute_feature('compare', id_consult, id_compare)

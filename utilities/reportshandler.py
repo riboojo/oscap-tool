@@ -1,8 +1,16 @@
+"""
+    OscapReports:
+        Handle the parsing of .xml reports, performs summaries and compares them
+"""
+
 import xml.etree.ElementTree as et
 
 class OscapReports(object):
-    # Function to summarize a report by saving general data
+    """ Handles the parsing of .xml reports  """
+
     def parse_xml(self, xml_report, id_report):
+        """ Function to summarize a report by saving general data """
+
         tree = et.parse(xml_report)
         root = tree.getroot()
 
@@ -67,13 +75,14 @@ class OscapReports(object):
 
         return summary, overall_results, detailed_results
 
-    # Function to print a scan report in a cool way
     def print_report(self, summary, results):
+        """ Function to print a scan report in a cool way """
+
         len_header = len(summary['title']) + 8
 
-        print(f"=== {summary['title']} ===\n")
+        print("=== {summary['title']} ===\n")
         print(summary['description'])
-        print(f"=" * len_header + "\n")
+        print("=" * len_header + "\n")
 
         print(f"This report was generetad by {summary['identity']} on {summary['timestamp']} following the {summary['profile']} profile\n")
 
@@ -83,8 +92,9 @@ class OscapReports(object):
                 print(f"{key}: {value}")
             print("======================================================")
 
-    # Function to get the main differences between the results of two reports
-    def compare_reports(self, results1, results2):
+    def compare_results(self, results1, results2):
+        """ Function to get the main differences between the results of two reports """
+
         differences = []
         keys = ['Rule','Severity','Result']
 
@@ -103,9 +113,10 @@ class OscapReports(object):
                 differences.append(diff_dict)
 
         return differences
-    
-    # Function to print the differences of to scan reports in a cool way
+
     def print_differences(self, overall1, overall2, differences):
+        """ Function to print the differences of to scan reports in a cool way """
+
         if not differences:
             return "No differences found"
 
@@ -123,16 +134,18 @@ class OscapReports(object):
 
         print(output)
 
-    # Function to print the general data of a couple of scan report
     def print_overall(self, overall1, overall2):
+        """ Function to print the general data of a couple of scan report """
+
         all_keys = set(list(overall1.keys()) + list(overall2.keys()))
 
         max_key_length = max(len(key) for key in all_keys)
         max_value_length = max(len(str(val)) for val in list(overall1.values()) + list(overall2.values()))
 
         header = f"| {'Results':<{max_key_length + 2}} | {'First':<{max_value_length}} | {'Second':<{max_value_length}} |"
+
         separator = f"+{'-' * (max_key_length + 4)}+{'-' * (max_value_length + 4)}+{'-' * (max_value_length + 5)}+"
-        
+
         print(separator)
         print(header)
         print(separator)

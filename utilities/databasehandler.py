@@ -1,18 +1,30 @@
+"""
+    OscapDatabase:
+        Handle the creation, connections and queries for scans database
+"""
+
 import sqlite3
 
 class OscapDatabase(object):
-    # Constructor for OscapArguments class with default database name
-    def __init__(self, db_name=f'database/oscap_scans_history.db'):
-        self.dbname = db_name
+    """ handles the interaction with the database """
 
-    # Function to start a connection with the database
+    def __init__(self, db_name='database/oscap_scans_history.db'):
+        """ Constructor for OscapArguments class with default database name """
+
+        self.dbname = db_name
+        self.connection = None
+        self.cursor = None
+
     def open(self):
+        """ Function to start a connection with the database """
+
         self.connection = sqlite3.connect(self.dbname)
         self.cursor = self.connection.cursor()
-        self.createTable()
+        self.create_table()
 
-    # Function to create the scans table containing the scan id, timestamp, result/report paths
-    def createTable(self):
+    def create_table(self):
+        """ Function to create the scans table containing the scan id, timestamp, result/report paths """
+
         self.cursor.execute('''
             CREATE TABLE IF NOT EXISTS scans (
                 scan_id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -23,18 +35,21 @@ class OscapDatabase(object):
         ''')
         self.connection.commit()
 
-    # Function to add a row to the scans table with the provided data
-    def addScan(self, timestamp, report_path, result_path):
+    def add_scan(self, timestamp, report_path, result_path):
+        """ Function to add a row to the scans table with the provided data """
+
         self.cursor.execute('INSERT INTO scans (timestamp, result_path, report_path) VALUES (?, ?, ?)', (timestamp, result_path, report_path))
         self.connection.commit()
 
-    # Function to perform a query of all data found in scans table
-    def getScans(self):
+    def get_scans(self):
+        """ Function to perform a query of all data found in scans table """
+
         self.cursor.execute('SELECT scan_id, timestamp FROM scans')
         return self.cursor.fetchall()
 
-    # Function to perform a query to get the report path of the requested scan id
-    def getReportPath(self, scan_id):
+    def get_report_path(self, scan_id):
+        """ Function to perform a query to get the report path of the requested scan id """
+
         self.cursor.execute('SELECT report_path FROM scans WHERE scan_id = ?', (scan_id,))
         row = self.cursor.fetchone()
         if row:
@@ -42,6 +57,7 @@ class OscapDatabase(object):
         else:
             return None
 
-    # Function to end a connection with the database
     def close(self):
+        """ Function to end a connection with the database """
+
         self.connection.close()

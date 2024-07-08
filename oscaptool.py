@@ -1,3 +1,7 @@
+"""
+    Main script to execute the OscalTool
+"""
+
 from utilities.argumentshandler import OscapArguments
 
 if __name__ == '__main__':

@@ -6,6 +6,7 @@ Simple command line tool for regular openscap scans of the Oracle Linux 8
 | :---:   | :---:                  | :---:        | :---:           |
 | 1.0     | 07-08-2024             | rbojorquez   | First release: <br> All functionality covered    |
 | 1.1     | 07-08-2024             | rbojorquez   | Fix duplicated instance of OscapScanner    |
+| 1.2     | 07-08-2024             | rbojorquez   | Fix Pylint warnings    |
 
 ## Preconditions
 
