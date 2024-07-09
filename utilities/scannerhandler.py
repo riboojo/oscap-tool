@@ -20,7 +20,7 @@ class OscapScanner(object):
     def perform_scan(self):
         """ Function to run the oscap command and save the results data into the database """
 
-        current_time = datetime.datetime.now()
+        current_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         result_filename = f'reports/{current_time}.xml'
         report_filename = f'reports/{current_time}.html'
 
@@ -41,8 +41,14 @@ class OscapScanner(object):
         self.db.close()
 
         if all_scans:
+            print("+----------+----------------------------+")
+            print("| Scan  ID |        Generated on        |")
+            print("+----------+----------------------------+")
+
             for scan_id, timestamp in all_scans:
-                print(f'ID #{scan_id} generated on {timestamp}')
+                print(f'|    {scan_id:<5} | {timestamp} |')
+
+            print("+----------+----------------------------+")
         else:
             print('There are no entries in the history database')
 
