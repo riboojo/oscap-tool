@@ -9,11 +9,40 @@ import xml.etree.ElementTree as et
 class OscapReports(object):
     """ Handles the parsing of .xml reports  """
 
-    def parse_xml(self, xml_report, id_report):
+    def parse_xml(self, xml_report):
         """ Function to summarize a report by saving general data """
 
         tree = et.parse(xml_report)
         root = tree.getroot()
+
+        # Namespace used by the ssg-ol8-xccdf.xml format
+        ns = {
+            'default': 'http://checklists.nist.gov/xccdf/1.2'
+        }
+
+        test_results = root.findall('.//default:TestResult/*', namespaces=ns)
+        result_root = et.Element('TestResult', namespaces=ns)
+
+        for element in test_results:
+            if element.tag == '{http://checklists.nist.gov/xccdf/1.2}rule-result':
+                result_element = element.find('default:result', namespaces=ns)
+                if result_element is not None and 'notselected' in result_element.text:
+                    continue
+            result_root.append(element)
+
+        result_tree = et.ElementTree(result_root)
+        result_tree.write(xml_report, encoding='utf-8', xml_declaration=True)
+
+    def get_summary(self, xml_report, id_report):
+        """ Function to retrieve general report data """
+
+        tree = et.parse(xml_report)
+        root = tree.getroot()
+
+        # Namespace used by the ssg-ol8-xccdf.xml format
+        ns = {
+            'default': 'http://checklists.nist.gov/xccdf/1.2'
+        }
 
         # Dictionary to store summarized scan data
         summary = {}
@@ -24,54 +53,37 @@ class OscapReports(object):
         overall_results = {
             'Passed' : 0,
             'Failed' : 0,
-            'NotApplicable' : 0
+            'Score' : 0
         }
 
-        # Namespace used by the ssg-ol8-xccdf.xml format
-        ns = {
-            'default': 'http://checklists.nist.gov/xccdf/1.2'
-        }
+        title = root.find('default:title', namespaces=ns).text
+        identity = root.find('default:identity', namespaces=ns).text
+        score = float(root.find('default:score', namespaces=ns).text)
+        profile = root.find('default:profile', namespaces=ns).attrib['idref']
+        
+        for rule_result in root.findall('default:rule-result', namespaces=ns):
+            rule = rule_result.attrib.get('idref')
+            result = rule_result.find('./default:result', namespaces=ns)
 
-        # Perform the xml parsing to get the desired data from the scan report
-        title = root.find('.//default:title', namespaces=ns)
-        description = root.find('.//default:description', namespaces=ns)
-        test_result = root.find('.//default:TestResult', namespaces=ns)
+            test_summary = {
+                'Rule' : rule,
+                'Result' : result.text
+            }
 
-        if test_result is not None:
-            identity = test_result.find('./default:identity', namespaces=ns)
-            profile_tag = test_result.find('./default:profile', namespaces=ns)
+            # Fill the ovarall results with the results for each checked rule
+            if result.text == 'pass':
+                overall_results['Passed'] += 1
+            elif result.text == 'fail':
+                overall_results['Failed'] += 1
 
-            if profile_tag is not None:
-                profile = profile_tag.attrib.get('idref')
-
-            for rule_result in test_result.findall('./default:rule-result', namespaces=ns):
-                rule = rule_result.attrib.get('idref')
-                severity = rule_result.attrib.get('severity')
-                result = rule_result.find('./default:result', namespaces=ns)
-
-                test_summary = {
-                    'Rule' : rule,
-                    'Result' : result.text
-                }
-
-                # Fill the ovarall results with the results for each checked rule
-                if result.text == 'pass':
-                    overall_results['Passed'] += 1
-                elif result.text == 'fail':
-                    overall_results['Failed'] += 1
-                else:
-                    overall_results['NotApplicable'] += 1
-
-                detailed_results.append(test_summary)
-
-        timestamp = test_result.attrib.get('start-time')
+            overall_results['Score'] = f'{score:.2f}%'
+            detailed_results.append(test_summary)
 
         summary['idx'] = id_report
-        summary['title'] = title.text
-        summary['description'] = description.text
-        summary['identity'] = identity.text
+        summary['title'] = title
+        summary['identity'] = identity
         summary['profile'] = profile
-        summary['timestamp'] = timestamp
+        summary['timestamp'] = xml_report.split('/')[-1].split('.')[0]
 
         return summary, overall_results, detailed_results
 
@@ -79,9 +91,8 @@ class OscapReports(object):
         """ Function to print a scan report in a cool way """
 
         len_header = len(summary['title']) + 8
-
-        print("=== {summary['title']} ===\n")
-        print(summary['description'])
+        print("=" * len_header)
+        print(f"=== {summary['title']} ===")
         print("=" * len_header + "\n")
 
         print(f"This report was generetad by {summary['identity']} on {summary['timestamp']} following the {summary['profile']} profile\n")

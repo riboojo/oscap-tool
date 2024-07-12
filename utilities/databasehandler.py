@@ -13,16 +13,15 @@ class OscapDatabase(object):
         CREATE TABLE IF NOT EXISTS scans (
             scan_id INTEGER PRIMARY KEY AUTOINCREMENT,
             timestamp TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-            result_path TEXT NOT NULL,
-            report_path TEXT NOT NULL
+            result_path TEXT NOT NULL
         )
     '''
 
-    QUERY_ADD_SCAN = 'INSERT INTO scans (timestamp, result_path, report_path) VALUES (?, ?, ?)'
+    QUERY_ADD_SCAN = 'INSERT INTO scans (timestamp, result_path) VALUES (?, ?)'
 
     QUERY_GET_SCANS = 'SELECT scan_id, timestamp FROM scans'
 
-    QUERY_GET_REPORT_PATH = 'SELECT report_path FROM scans WHERE scan_id = ?'
+    QUERY_GET_REPORT_PATH = 'SELECT result_path FROM scans WHERE scan_id = ?'
 
     def __init__(self, db_name='database/oscap_scans_history.db'):
         """ Constructor for OscapArguments class with default database name """
@@ -44,10 +43,10 @@ class OscapDatabase(object):
         self.cursor.execute(self.QUERY_CREATE_TABLE)
         self.connection.commit()
 
-    def add_scan(self, timestamp, report_path, result_path):
+    def add_scan(self, timestamp, result_path):
         """ Function to add a row to the scans table with the provided data """
 
-        self.cursor.execute(self.QUERY_ADD_SCAN, (timestamp, result_path, report_path))
+        self.cursor.execute(self.QUERY_ADD_SCAN, (timestamp, result_path))
         self.connection.commit()
 
     def get_scans(self):

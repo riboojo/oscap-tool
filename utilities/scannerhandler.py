@@ -23,16 +23,17 @@ class OscapScanner(object):
 
         current_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         result_filename = f'reports/{current_time}.xml'
-        report_filename = f'reports/{current_time}.html'
         xccdf_filename = f'/usr/share/xml/scap/ssg/content/' + xccdf
 
         # Run the oscap command with stig profile and ssg-ol8-xccdf
-        subprocess.run(['oscap', 'xccdf', 'eval', '--profile', profile, '--results', result_filename, '--report', report_filename, xccdf_filename], check=False)
+        subprocess.run(['oscap', 'xccdf', 'eval', '--profile', profile, '--results', result_filename, xccdf_filename], check=False)
 
         # Start database connection, perform query and clos connection
         self.db.open()
-        self.db.add_scan(current_time, result_filename, report_filename)
+        self.db.add_scan(current_time, result_filename)
         self.db.close()
+
+        self.reports.parse_xml(result_filename)
 
     def read_history(self):
         """ Function to retrieve the scans history """
@@ -64,7 +65,7 @@ class OscapScanner(object):
 
         if report_path:
             # Get the summarized data from .xml report
-            summary, _, results = self.reports.parse_xml(report_path, id_consult)
+            summary, _, results = self.reports.get_summary(report_path, id_consult)
             # Print the requested report in a cool format
             self.reports.print_report(summary, results)
         else:
@@ -80,8 +81,8 @@ class OscapScanner(object):
 
         if report_path and compare_path:
             # Get the summarized data from both .xml report
-            _, overall1, results1 = self.reports.parse_xml(report_path, id_consult)
-            _, overall2, results2 = self.reports.parse_xml(compare_path, id_compare)
+            _, overall1, results1 = self.reports.get_summary(report_path, id_consult)
+            _, overall2, results2 = self.reports.get_summary(compare_path, id_compare)
             differences = self.reports.compare_results(results1, results2)
 
             # Print the differences of the requested reports in a cool format
@@ -102,4 +103,3 @@ class OscapScanner(object):
             self.compare_reports(args.get('frm'), args.get('to'))
         else:
             logging.error(f"{command} is not recognized as a valid command")
-
