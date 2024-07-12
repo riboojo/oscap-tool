@@ -157,3 +157,4 @@ class OscapReports(object):
             print(row)
 
         print(separator)
+

@@ -19,58 +19,51 @@ class OscapArguments(object):
         """ Function to start the arguments parser and handle if arguments were given or not """
 
         parser = argparse.ArgumentParser(description='Simple command line tool for regular openscap scans')
+        subparsers = parser.add_subparsers(dest='command', help='Select one of the following options: scan, history, consult, compare')
 
-        # Add the optional arguments to the parser
-        parser.add_argument('command', type=str, nargs='?', default=None, help='Select one of the following options: scan, history, consult, compare')
-        parser.add_argument('id_consult', type=str, nargs='?', default=None, help='Select a valid ID (you can execute -history command to retrieve valid IDs)')
-        parser.add_argument('id_compare', type=str, nargs='?', default=None, help='Select a valid ID (you can execute -history command to retrieve valid IDs)')
+        # Handle the scan command subparser
+        scan_parser = subparsers.add_parser('scan', help='Perform a oscap scan based on provided xccdf file and profile')
+        scan_parser.add_argument('--xccdf', type=str, default='ssg-ol8-xccdf.xml', help='Select a valid a XCCDF filename (you can look for them inside /usr/share/xml/scap/ssg/content/)')
+        scan_parser.add_argument('--profile', type=str, default='xccdf_org.ssgproject.content_profile_stig', help='Select a valid profile')
+
+        # Handle the history command subparser
+        subparsers.add_parser('history', help='Print history table of saved scans')
+
+        # Handle the consult command subparser
+        consult_parser = subparsers.add_parser('consult', help='Consult a saved scan report by its ID')
+        consult_parser.add_argument('--frm', type=int, required=True, help='Select a valid ID (you can execute -history command to retrieve valid IDs)')
+
+        # Handle the compare command subparser
+        compare_parser = subparsers.add_parser('compare', help='Compare two saved scan reports by their IDs')
+        compare_parser.add_argument('--frm', type=int, required=True, help='Select a valid ID (you can execute -history command to retrieve valid IDs)')
+        compare_parser.add_argument('--to', type=int, required=True, help='Select a valid ID (you can execute -history command to retrieve valid IDs)')
 
         args = parser.parse_args()
-        command = args.command
-        id_consult = args.id_consult
-        id_compare = args.id_compare
 
-        if not command:
-            # If no arguments given then print the menu
-            self.print_menu()
-        elif command=='consult' and not id_consult:
-            # If no IDs given then print the consult menu
-            self.print_menu_consult()
-        elif command=='compare' and not id_compare:
-            # If no IDs given then print the compare menu
-            self.print_menu_compare()
+        if not args.command:
+            print("Please enter a valid command, check --help menu for correct tool handling")
         else:
-            self.scanner.execute_feature(command, id_consult, id_compare)
+            validated_args = self.validate_args(args)
+            self.scanner.execute_feature(**validated_args)
 
-    def print_menu(self):
-        """ Function to print the main menu in case no arguments given """
+    def validate_args(self, args):
+        validated_args = {
+            'command': args.command,
+        }
 
-        print("Select one of the following commands:\n1: scan\n2: history\n3: consult\n4: compare")
-        selection = input("> ")
+        if hasattr(args, 'xccdf'):
+            validated_args['xccdf'] = args.xccdf
 
-        if selection == '1':
-            self.scanner.execute_feature('scan')
-        elif selection == '2':
-            self.scanner.execute_feature('history')
-        elif selection == '3':
-            self.print_menu_consult()
-        elif selection == '4':
-            self.print_menu_compare()
-        else:
-            print("Please enter a valid option")
+        if hasattr(args, 'profile'):
+            validated_args['profile'] = args.profile
 
-    def print_menu_consult(self):
-        """ Function to print the consult menu in case no id given """
+        if hasattr(args, 'frm'):
+            validated_args['frm'] = args.frm
 
-        print("Enter an ID to consult its report")
-        id_consult = input("> ")
-        self.scanner.execute_feature('consult', id_consult)
+        if hasattr(args, 'to'):
+            validated_args['to'] = args.to
 
-    def print_menu_compare(self):
-        """ Function to print the compare menu in case no id given """
+        return validated_args
 
-        print("Enter the first ID to compare")
-        id_consult = input("> ")
-        print("Enter the second ID to compare")
-        id_compare = input("> ")
-        self.scanner.execute_feature('compare', id_consult, id_compare)
+        
+

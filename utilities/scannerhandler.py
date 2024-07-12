@@ -17,15 +17,16 @@ class OscapScanner(object):
         self.db = OscapDatabase()
         self.reports = OscapReports()
 
-    def perform_scan(self):
+    def perform_scan(self, xccdf, profile):
         """ Function to run the oscap command and save the results data into the database """
 
         current_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
         result_filename = f'reports/{current_time}.xml'
         report_filename = f'reports/{current_time}.html'
+        xccdf_filename = f'/usr/share/xml/scap/ssg/content/' + xccdf
 
         # Run the oscap command with stig profile and ssg-ol8-xccdf
-        subprocess.run(['oscap', 'xccdf', 'eval', '--profile', 'xccdf_org.ssgproject.content_profile_stig', '--results', result_filename, '--report', report_filename, '/usr/share/xml/scap/ssg/content/ssg-ol8-xccdf.xml'], check=False)
+        subprocess.run(['oscap', 'xccdf', 'eval', '--profile', profile, '--results', result_filename, '--report', report_filename, xccdf_filename], check=False)
 
         # Start database connection, perform query and clos connection
         self.db.open()
@@ -46,7 +47,7 @@ class OscapScanner(object):
             print("+----------+----------------------------+")
 
             for scan_id, timestamp in all_scans:
-                print(f'|    {scan_id:<5} | {timestamp} |')
+                print(f'|    {scan_id:<5} |     {timestamp:}    |')
 
             print("+----------+----------------------------+")
         else:
@@ -87,16 +88,17 @@ class OscapScanner(object):
         else:
             print('Invalid ID given as parameters')
 
-    def execute_feature(self, command, id_consult=None, id_compare=None):
+    def execute_feature(self, command, **args):
         """ Function to determine which functionality has been requested """
 
         if command == 'scan':
-            self.perform_scan()
+            self.perform_scan(args.get('xccdf'), args.get('profile'))
         elif command == 'history':
             self.read_history()
         elif command == 'consult':
-            self.consult_report(id_consult)
+            self.consult_report(args.get('frm'))
         elif command == 'compare':
-            self.compare_reports(id_consult, id_compare)
+            self.compare_reports(args.get('frm'), args.get('to'))
         else:
             print(f"{command} is not recognized as a valid command")
+

@@ -8,6 +8,7 @@ Simple command line tool for regular openscap scans of the Oracle Linux 8
 | 1.1     | 07-08-2024             | rbojorquez   | Fix duplicated instance of OscapScanner    |
 | 1.2     | 07-08-2024             | rbojorquez   | Fix Pylint warnings    |
 | 1.3     | 07-08-2024             | rbojorquez   | Improve the history table format    |
+| 1.4     | 07-11-2024             | rbojorquez   | Enforce cli usage with subcommands    |
 
 ## Preconditions
 
@@ -34,7 +35,7 @@ $ oscap info /usr/share/xml/scap/ssg/content/ssg-ol8-xccdf.xml
 - **Consult:** Print a scan report by its id available from the history
 - **Compare:** Compare two scan reports available from the history by its ids
 
-This tool uses by default the ***xccdf_org.ssgproject.content_profile_stig*** profile. As well as the rules described in ***ssg-ol8-xccdf***.
+_**NOTE:** This tool uses by default the ***xccdf_org.ssgproject.content_profile_stig*** profile. As well as the rules described in ***ssg-ol8-xccdf***._
 
 ## Usage
 
@@ -43,7 +44,19 @@ You can perform any of the existing functionality with one line command input as
 ***To perform a scan***
 
 ```console
-$ python3 oscaptool.py scan
+$ python3 oscaptool.py scan --xccdf ssg-ol8-xccdf.xml --profile xccdf_org.ssgproject.content_profile_stig
+```
+
+You can check the available XCCDF files with:
+
+```console
+$ ls '/usr/share/xml/scap/ssg/content/'
+```
+
+You can check the available profiles of a specific XCCDF checklist with:
+
+```console
+$ oscap info '/usr/share/xml/scap/ssg/content/ssg-ol8-xccdf.xml'
 ```
 
 ***To check the history***
@@ -55,28 +68,10 @@ $ python3 oscaptool.py history
 ***To consult the scan report with id 1***
 
 ```console
-$ python3 oscaptool.py consult 1
+$ python3 oscaptool.py consult --frm 1
 ```
 
 ***To compare the scan report with id 1 against the one with id 2***
 
 ```console
-$ python3 oscaptool.py compare 1 2
-```
-Or you can either use the menu:
-
-```console
-$ python3 oscaptool.py
-Select one of the following commands:
-1: scans
-2: history
-3: consult
-4: compare
->
-```
-
-```console
-$ python3 oscaptool.py consult
-Enter an ID to consult its report:
->
-```
+$ python3 oscaptool.py compare --frm 1 --to 2

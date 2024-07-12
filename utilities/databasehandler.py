@@ -61,3 +61,4 @@ class OscapDatabase(object):
         """ Function to end a connection with the database """
 
         self.connection.close()
+
