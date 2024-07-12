@@ -78,3 +78,10 @@ $ python3 oscaptool.py consult --frm 1
 
 ```console
 $ python3 oscaptool.py compare --frm 1 --to 2
+```
+
+***To configure a specific log level for the tool execution***
+```console
+$ python3 oscaptool.py --loglevel ERROR scan
+```
+**_NOTE:_** Default log level is set to INFO and works for any feature
