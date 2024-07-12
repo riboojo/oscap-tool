@@ -51,7 +51,6 @@ class OscapReports(object):
 
                 test_summary = {
                     'Rule' : rule,
-                    'Severity' : severity,
                     'Result' : result.text
                 }
 
@@ -97,20 +96,37 @@ class OscapReports(object):
         """ Function to get the main differences between the results of two reports """
 
         differences = []
-        keys = ['Rule','Severity','Result']
+        dict1_map = {d['Rule']: d for d in results1}
+        dict2_map = {d['Rule']: d for d in results2}
 
-        for dict1, dict2 in zip(results1, results2):
-            if all(dict1[key] == dict2[key] for key in keys):
-                continue
+        # Compare results1 with results2
+        for rule, dict1 in dict1_map.items():
+            dict2 = dict2_map.get(rule)
+            if dict2:
+                if dict1['Result'] != dict2['Result']:
+                    diff_dict = {
+                        'rule': rule,
+                        'list1_value': dict1['Result'],
+                        'list2_value': dict2['Result']
+                    }
+                    differences.append(diff_dict)
             else:
-                diff_dict = {}
-                for key in keys:
-                    if dict1.get(key) != dict2.get(key):
-                        diff_dict[key] = {
-                            'rule': dict1.get('Rule'),
-                            'list1_value': dict1.get(key),
-                            'list2_value': dict2.get(key)
-                        }
+                diff_dict = {
+                    'rule': rule,
+                    'list1_value': dict1['Result'],
+                    'list2_value': 'notfound'
+                }
+                differences.append(diff_dict)
+
+        # Compare results2 with results1
+        for rule, dict2 in dict2_map.items():
+            # Exclude repeated differences
+            if rule not in dict1_map:
+                diff_dict = {
+                    'rule': rule,
+                    'list1_value': 'notfound',
+                    'list2_value': dict2['Result']
+                }
                 differences.append(diff_dict)
 
         return differences
@@ -126,12 +142,12 @@ class OscapReports(object):
         output = "\n"
         for idx, diff_dict in enumerate(differences, start=1):
             output += f"  Difference {idx}:\n"
-            for key, values in diff_dict.items():
-                rule = values['rule']
-                list1_value = values['list1_value']
-                list2_value = values['list2_value']
-                output += f"    Rule: {rule}\n"
-                output += f"    {key} {list1_value} -> {list2_value}\n"
+             
+            rule = diff_dict['rule']
+            list1_value = diff_dict['list1_value']
+            list2_value = diff_dict['list2_value']
+            output += f"    Rule: {rule}\n"
+            output += f"    Result: {list1_value} -> {list2_value}\n"
 
         print(output)
 
@@ -147,7 +163,7 @@ class OscapReports(object):
 
         separator = f"+{'-' * (max_key_length + 4)}+{'-' * (max_value_length + 4)}+{'-' * (max_value_length + 5)}+"
 
-        print(separator)
+        print('\n' + separator)
         print(header)
         print(separator)
 
@@ -158,4 +174,3 @@ class OscapReports(object):
             print(row)
 
         print(separator)
-
