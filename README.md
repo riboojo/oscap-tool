@@ -1,5 +1,6 @@
 # Oscap Tool
-Simple command line tool for regular openscap scans of the Oracle Linux 8
+Simple command line tool for regular openscap scans of the Oracle Linux 8. <br>
+You can find the official releases under **/rel** branch (**/main** branch is not used in this project) as well as finding tags matching with release versions below.
 
 
 | Release | Date <br> (mm-dd-yyyy) | Author       | Description     |
@@ -9,6 +10,8 @@ Simple command line tool for regular openscap scans of the Oracle Linux 8
 | 1.2     | 07-08-2024             | rbojorquez   | Fix Pylint warnings    |
 | 1.3     | 07-08-2024             | rbojorquez   | Improve the history table format    |
 | 1.4     | 07-11-2024             | rbojorquez   | Enforce cli usage with subcommands    |
+| 1.5     | 07-11-2024             | rbojorquez   | Add logging functionality    |
+
 
 ## Preconditions
 

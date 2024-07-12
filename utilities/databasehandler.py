@@ -4,6 +4,7 @@
 """
 
 import sqlite3
+import logging
 
 class OscapDatabase(object):
     """ handles the interaction with the database """

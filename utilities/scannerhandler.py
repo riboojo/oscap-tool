@@ -3,6 +3,7 @@
         Handle the four functionality of the OscapTool: scan, history, consult and compare
 """
 
+import logging
 import datetime
 import subprocess
 from utilities.databasehandler import OscapDatabase
@@ -51,7 +52,7 @@ class OscapScanner(object):
 
             print("+----------+----------------------------+")
         else:
-            print('There are no entries in the history database')
+            logging.error('There are no entries in the history database')
 
     def consult_report(self, id_consult):
         """ Function to print the requested scan report """
@@ -67,7 +68,7 @@ class OscapScanner(object):
             # Print the requested report in a cool format
             self.reports.print_report(summary, results)
         else:
-            print(f'There is no ID #{id_consult} in the history database')
+            logging.error(f'There is no ID #{id_consult} in the history database')
 
     def compare_reports(self, id_consult, id_compare):
         """ Function to compare a couple of requested scans reports """
@@ -86,7 +87,7 @@ class OscapScanner(object):
             # Print the differences of the requested reports in a cool format
             self.reports.print_differences(overall1, overall2, differences)
         else:
-            print('Invalid ID given as parameters')
+            logging.error('Invalid ID given as parameters')
 
     def execute_feature(self, command, **args):
         """ Function to determine which functionality has been requested """
@@ -100,5 +101,5 @@ class OscapScanner(object):
         elif command == 'compare':
             self.compare_reports(args.get('frm'), args.get('to'))
         else:
-            print(f"{command} is not recognized as a valid command")
+            logging.error(f"{command} is not recognized as a valid command")
 

@@ -3,6 +3,7 @@
         Handle the parsing of .xml reports, performs summaries and compares them
 """
 
+import logging
 import xml.etree.ElementTree as et
 
 class OscapReports(object):
