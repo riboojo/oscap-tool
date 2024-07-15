@@ -1,0 +1,706 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TestResult xmlns:ns0="http://checklists.nist.gov/xccdf/1.2" namespaces="{'default': 'http://checklists.nist.gov/xccdf/1.2'}"><ns0:benchmark href="/usr/share/xml/scap/ssg/content/ssg-ol8-xccdf.xml" id="xccdf_org.ssgproject.content_benchmark_OL-8" />
+    <ns0:title>OSCAP Scan Result</ns0:title>
+    <ns0:identity authenticated="false" privileged="false">rbojorquez</ns0:identity>
+    <ns0:profile idref="xccdf_org.ssgproject.content_profile_standard" />
+    <ns0:target>localhost</ns0:target>
+    <ns0:target-address>127.0.0.1</ns0:target-address>
+    <ns0:target-address>192.168.122.1</ns0:target-address>
+    <ns0:target-address>0:0:0:0:0:0:0:1</ns0:target-address>
+    <ns0:target-facts>
+      <ns0:fact name="urn:xccdf:fact:scanner:name" type="string">OpenSCAP</ns0:fact>
+      <ns0:fact name="urn:xccdf:fact:scanner:version" type="string">1.3.10</ns0:fact>
+      <ns0:fact name="urn:xccdf:fact:asset:identifier:fqdn" type="string">localhost</ns0:fact>
+      <ns0:fact name="urn:xccdf:fact:asset:identifier:host_name" type="string">localhost.localdomain</ns0:fact>
+      <ns0:fact name="urn:xccdf:fact:ethernet:MAC" type="string">00:00:00:00:00:00</ns0:fact>
+      <ns0:fact name="urn:xccdf:fact:asset:identifier:mac" type="string">00:00:00:00:00:00</ns0:fact>
+      <ns0:fact name="urn:xccdf:fact:ethernet:MAC" type="string">E0:D4:E8:94:E3:00</ns0:fact>
+      <ns0:fact name="urn:xccdf:fact:asset:identifier:mac" type="string">E0:D4:E8:94:E3:00</ns0:fact>
+      <ns0:fact name="urn:xccdf:fact:ethernet:MAC" type="string">52:54:00:D2:80:CD</ns0:fact>
+      <ns0:fact name="urn:xccdf:fact:asset:identifier:mac" type="string">52:54:00:D2:80:CD</ns0:fact>
+      <ns0:fact name="urn:xccdf:fact:asset:identifier:ipv4" type="string">127.0.0.1</ns0:fact>
+      <ns0:fact name="urn:xccdf:fact:asset:identifier:ipv4" type="string">192.168.122.1</ns0:fact>
+      <ns0:fact name="urn:xccdf:fact:asset:identifier:ipv6" type="string">::1</ns0:fact>
+    </ns0:target-facts>
+    <ns0:platform idref="#package_yum" />
+    <ns0:platform idref="#not_aarch64_arch" />
+    <ns0:platform idref="cpe:/o:oracle:linux:8" />
+    <ns0:platform idref="#machine" />
+    <ns0:platform idref="#not_aarch64_arch_and_not_s390x_arch" />
+    <ns0:platform idref="#package_audit" />
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_aide_scan_notification_email">root@localhost</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_ssh_client_rekey_limit_size">512M</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_ssh_client_rekey_limit_time">1h</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_system_crypto_policy">DEFAULT</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_inactivity_timeout_value">900</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_screensaver_lock_delay">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_sudo_dedicated_group">root</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_sudo_logfile">/var/log/sudo.log</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_sudo_passwd_timeout">5</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_sudo_timestamp_timeout">5</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_sudo_umask">0022</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_authselect_profile">minimal</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_login_banner_text">^Authorized[\s\n]+uses[\s\n]+only\.[\s\n]+All[\s\n]+activity[\s\n]+may[\s\n]+be[\s\n]+monitored[\s\n]+and[\s\n]+reported\.$</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_motd_banner_text">^Authorized[\s\n]+uses[\s\n]+only\.[\s\n]+All[\s\n]+activity[\s\n]+may[\s\n]+be[\s\n]+monitored[\s\n]+and[\s\n]+reported\.$</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_remote_login_banner_text">^Authorized[\s\n]+uses[\s\n]+only\.[\s\n]+All[\s\n]+activity[\s\n]+may[\s\n]+be[\s\n]+monitored[\s\n]+and[\s\n]+reported\.$</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_password_hashing_algorithm">SHA512</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_password_pam_unix_remember">5</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_accounts_passwords_pam_faillock_deny">3</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_accounts_passwords_pam_faillock_dir">/var/log/faillock</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_accounts_passwords_pam_faillock_fail_interval">900</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_accounts_passwords_pam_faillock_unlock_time">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_accounts_passwords_pam_tally2_unlock_time">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_password_pam_remember">5</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_password_pam_remember_control_flag">requisite</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_password_pam_tally2">3</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_password_pam_dcredit">-1</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_password_pam_dictcheck">1</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_password_pam_difok">8</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_password_pam_lcredit">-1</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_password_pam_maxclassrepeat">4</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_password_pam_maxrepeat">3</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_password_pam_minclass">3</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_password_pam_minlen">15</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_password_pam_ocredit">-1</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_password_pam_retry">3</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_password_pam_ucredit">-1</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_logind_session_timeout">300</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_accounts_authorized_local_users_regex">^(abrt|adm|avahi|bin|chrony|clevis|cockpit-ws|cockpit-wsinstance|colord|daemon|dbus|dnsmasq|flatpak|ftp|games|gdm|geoclue|gluster|gnome-initial-setup|halt|libstoragemgmt|lp|mail|nfsnobody|nobody|ntp|operator|oprofile|oracle|pcp|pegasus|pipewire|polkitd|postfix|pulse|qemu|radvd|rngd|root|rpc|rpcuser|rtkit|saned|saslauth|setroubleshoot|shutdown|sshd|sssd|sync|systemd-bus-proxy|systemd-coredump|systemd-network|systemd-resolve|tcpdump|tss|unbound|usbmuxd$|uuidd)$</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_account_disable_inactivity">35</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_account_disable_post_pw_expiration">35</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_accounts_maximum_age_login_defs">60</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_accounts_maximum_age_root">99999</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_accounts_minimum_age_login_defs">7</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_accounts_password_minlen_login_defs">15</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_accounts_password_warn_age_login_defs">7</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_password_pam_unix_rounds">5000</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_pam_wheel_group_for_su">sugroup</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_accounts_fail_delay">4</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_accounts_max_concurrent_login_sessions">1</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_accounts_tmout">600</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_user_initialization_files_regex">^(\.bashrc|\.zshrc|\.cshrc|\.profile|\.bash_login|\.bash_profile)$</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_accounts_user_umask">027</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_l1tf_options">flush</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_mds_options">full</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_rng_core_default_quality">500</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_spec_store_bypass_disable_options">prctl</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_kernel_config_module_sig_hash">sha512</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_kernel_config_module_sig_key">certs/signing_key.pem</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_kernel_config_panic_timeout">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_rsyslog_remote_loghost_address">logcollector</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv6_conf_all_accept_ra_defrtr_value">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv6_conf_all_accept_ra_pinfo_value">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv6_conf_all_accept_ra_rtr_pref_value">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv6_conf_all_accept_ra_value">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv6_conf_all_accept_redirects_value">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv6_conf_all_accept_source_route_value">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv6_conf_all_autoconf_value">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv6_conf_all_forwarding_value">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv6_conf_all_max_addresses_value">1</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv6_conf_all_router_solicitations_value">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv6_conf_default_accept_ra_defrtr_value">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv6_conf_default_accept_ra_pinfo_value">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv6_conf_default_accept_ra_rtr_pref_value">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv6_conf_default_accept_ra_value">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv6_conf_default_accept_redirects_value">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv6_conf_default_accept_source_route_value">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv6_conf_default_autoconf_value">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv6_conf_default_max_addresses_value">1</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv6_conf_default_router_solicitations_value">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv4_conf_all_accept_redirects_value">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv4_conf_all_accept_source_route_value">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv4_conf_all_arp_filter_value">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv4_conf_all_arp_ignore_value">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv4_conf_all_forwarding_value">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv4_conf_all_log_martians_value">1</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv4_conf_all_rp_filter_value">1</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv4_conf_all_secure_redirects_value">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv4_conf_all_shared_media_value">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv4_conf_default_accept_redirects_value">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv4_conf_default_accept_source_route_value">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv4_conf_default_log_martians_value">1</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv4_conf_default_rp_filter_value">1</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv4_conf_default_secure_redirects_value">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv4_conf_default_shared_media_value">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv4_icmp_echo_ignore_broadcasts_value">1</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv4_icmp_ignore_bogus_error_responses_value">1</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv4_tcp_invalid_ratelimit_value">500</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv4_tcp_rfc1337_value">1</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_net_ipv4_tcp_syncookies_value">1</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_removable_partition">/dev/cdrom</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sysctl_kernel_kptr_restrict_value">1</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_slub_debug_options">P</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_selinux_policy_name">targeted</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_selinux_state">enforcing</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_abrt_anon_write">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_abrt_handle_event">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_abrt_upload_watch_anon_write">true</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_auditadm_exec_content">true</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_cron_can_relabel">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_cron_system_cronjob_use_shares">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_cron_userdomain_transition">true</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_daemons_dump_core">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_daemons_use_tcp_wrapper">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_daemons_use_tty">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_deny_execmem">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_deny_ptrace">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_domain_fd_use">true</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_domain_kernel_load_modules">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_fips_mode">true</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_gpg_web_anon_write">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_guest_exec_content">true</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_kerberos_enabled">true</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_logadm_exec_content">true</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_logging_syslogd_can_sendmail">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_logging_syslogd_use_tty">true</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_login_console_enabled">true</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_mmap_low_allowed">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_mock_enable_homedirs">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_mount_anyfile">true</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_polyinstantiation_enabled">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_secadm_exec_content">true</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_secure_mode">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_secure_mode_insmod">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_secure_mode_policyload">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_selinuxuser_direct_dri_enabled">true</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_selinuxuser_execheap">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_selinuxuser_execmod">true</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_selinuxuser_execstack">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_selinuxuser_mysql_connect_enabled">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_selinuxuser_ping">true</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_selinuxuser_postgresql_connect_enabled">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_selinuxuser_rw_noexattrfile">true</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_selinuxuser_share_music">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_selinuxuser_tcp_server">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_selinuxuser_udp_server">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_selinuxuser_use_ssh_chroot">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_ssh_chroot_rw_homedirs">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_ssh_keysign">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_ssh_sysadm_login">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_staff_exec_content">true</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_sysadm_exec_content">true</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_unconfined_login">true</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_use_ecryptfs_home_dirs">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_user_exec_content">true</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_xdm_bind_vnc_tcp_port">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_xdm_exec_bootloader">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_xdm_sysadm_login">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_xdm_write_home">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_xguest_connect_network">true</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_xguest_exec_content">true</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_xguest_mount_media">true</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_xguest_use_bluetooth">true</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_xserver_clients_write_xshm">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_xserver_execmem">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_xserver_object_manager">false</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_postfix_inet_interfaces">loopback-only</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_postfix_relayhost">smtp.$mydomain</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_postfix_root_mail_alias">change_me@localhost</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_multiple_time_servers">0.pool.ntp.org,1.pool.ntp.org,2.pool.ntp.org,3.pool.ntp.org</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_time_service_set_maxpoll">10</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_tftpd_secure_directory">/var/lib/tftpboot</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_snmpd_ro_string">changemero</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_snmpd_rw_string">changemerw</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_firewalld_sshd_zone">public</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sshd_approved_ciphers">aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc,aes192-cbc,aes256-cbc,rijndael-cbc@lysator.liu.se</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sshd_approved_macs">hmac-sha2-512,hmac-sha2-256,hmac-sha1,hmac-sha1-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512-etm@openssh.com</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sshd_idle_timeout_value">300</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sshd_listening_port">22</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sshd_max_auth_tries_value">4</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sshd_required">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_sshd_strong_kex">ecdh-sha2-nistp256,ecdh-sha2-nistp384,ecdh-sha2-nistp521,diffie-hellman-group-exchange-sha256,diffie-hellman-group16-sha512,diffie-hellman-group18-sha512,diffie-hellman-group14-sha256</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_sshd_max_sessions">10</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_sshd_set_keepalive">0</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_rekey_limit_size">512M</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_rekey_limit_time">1h</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_sshd_disable_compression">no</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_sshd_set_login_grace_time">60</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_sshd_set_maxstartups">10:30:100</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_sssd_certificate_verification_digest_function">sha1</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_sssd_memcache_timeout">300</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_sssd_ssh_known_hosts_timeout">180</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_sssd_ldap_tls_ca_dir">/etc/openldap/cacerts</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_audit_failure_mode">2</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_audispd_disk_full_action">single</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_audispd_network_failure_action">single</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_audispd_remote_server">logcollector</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_auditd_action_mail_acct">root</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_auditd_admin_space_left_action">single</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_auditd_admin_space_left_percentage">5</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_auditd_disk_error_action">single</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_auditd_disk_full_action">single</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_auditd_flush">data</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_auditd_freq">50</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_auditd_max_log_file">6</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_auditd_max_log_file_action">rotate</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_auditd_name_format">hostname</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_auditd_num_logs">5</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_auditd_space_left">100</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_auditd_space_left_action">email</ns0:set-value>
+    <ns0:set-value idref="xccdf_org.ssgproject.content_value_var_auditd_space_left_percentage">25</ns0:set-value>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_rpm_verify_hashes" role="full" severity="high" time="2024-07-15T16:47:38-06:00" weight="1.000000">
+      <ns0:result>pass</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-rpm_verify_hashes:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_rpm_verify_permissions" role="full" severity="high" time="2024-07-15T16:47:59-06:00" weight="1.000000">
+      <ns0:result>pass</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-rpm_verify_permissions:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_configure_bind_crypto_policy" role="full" severity="high" time="2024-07-15T16:47:59-06:00" weight="1.000000">
+      <ns0:result>notapplicable</ns0:result>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_configure_crypto_policy" role="full" severity="high" time="2024-07-15T16:47:59-06:00" weight="1.000000">
+      <ns0:result>pass</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-export export-name="oval:ssg-var_system_crypto_policy:var:1" value-id="xccdf_org.ssgproject.content_value_var_system_crypto_policy" />
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-configure_crypto_policy:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_configure_kerberos_crypto_policy" role="full" severity="high" time="2024-07-15T16:47:59-06:00" weight="1.000000">
+      <ns0:result>pass</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-configure_kerberos_crypto_policy:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_configure_libreswan_crypto_policy" role="full" severity="high" time="2024-07-15T16:48:00-06:00" weight="1.000000">
+      <ns0:result>pass</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-configure_libreswan_crypto_policy:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_configure_openssl_crypto_policy" role="full" severity="medium" time="2024-07-15T16:48:00-06:00" weight="1.000000">
+      <ns0:result>pass</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-configure_openssl_crypto_policy:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_configure_ssh_crypto_policy" role="full" severity="medium" time="2024-07-15T16:48:00-06:00" weight="1.000000">
+      <ns0:result>error</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-configure_ssh_crypto_policy:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_partition_for_var_log" role="full" severity="low" time="2024-07-15T16:48:00-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-partition_for_var_log:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_partition_for_var_log_audit" role="full" severity="low" time="2024-07-15T16:48:00-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-partition_for_var_log_audit:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_ensure_gpgcheck_globally_activated" role="full" severity="high" time="2024-07-15T16:48:00-06:00" weight="1.000000">
+      <ns0:result>pass</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-ensure_gpgcheck_globally_activated:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_ensure_oracle_gpgkey_installed" role="full" severity="high" time="2024-07-15T16:48:00-06:00" weight="1.000000">
+      <ns0:result>pass</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-ensure_oracle_gpgkey_installed:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_security_patches_up_to_date" role="full" severity="medium" time="2024-07-15T16:48:00-06:00" weight="1.000000">
+      <ns0:result>notchecked</ns0:result>
+      <ns0:message severity="info">None of the check-content-ref elements was resolvable.</ns0:message>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="https://linux.oracle.com/security/oval/com.oracle.elsa-ol8.xml.bz2" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_accounts_password_all_shadowed" role="full" severity="medium" time="2024-07-15T16:48:00-06:00" weight="1.000000">
+      <ns0:result>pass</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-accounts_password_all_shadowed:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_no_empty_passwords" role="full" severity="high" time="2024-07-15T16:48:00-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-no_empty_passwords:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_accounts_root_path_dirs_no_write" role="full" severity="medium" time="2024-07-15T16:48:00-06:00" weight="1.000000">
+      <ns0:result>pass</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-accounts_root_path_dirs_no_write:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_root_path_no_dot" role="full" severity="unknown" time="2024-07-15T16:48:00-06:00" weight="1.000000">
+      <ns0:result>pass</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-root_path_no_dot:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_package_rsyslog_installed" role="full" severity="medium" time="2024-07-15T16:48:00-06:00" weight="1.000000">
+      <ns0:result>pass</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-package_rsyslog_installed:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_service_rsyslog_enabled" role="full" severity="medium" time="2024-07-15T16:48:02-06:00" weight="1.000000">
+      <ns0:result>pass</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-service_rsyslog_enabled:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_dir_perms_world_writable_sticky_bits" role="full" severity="medium" time="2024-07-15T16:48:04-06:00" weight="1.000000">
+      <ns0:result>pass</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-dir_perms_world_writable_sticky_bits:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_file_permissions_unauthorized_sgid" role="full" severity="medium" time="2024-07-15T16:48:13-06:00" weight="1.000000">
+      <ns0:result>pass</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-file_permissions_unauthorized_sgid:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_file_permissions_unauthorized_suid" role="full" severity="medium" time="2024-07-15T16:48:22-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-file_permissions_unauthorized_suid:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_file_permissions_unauthorized_world_writable" role="full" severity="medium" time="2024-07-15T16:48:33-06:00" weight="1.000000">
+      <ns0:result>pass</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-file_permissions_unauthorized_world_writable:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_service_autofs_disabled" role="full" severity="medium" time="2024-07-15T16:48:33-06:00" weight="1.000000">
+      <ns0:result>notapplicable</ns0:result>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_mount_option_dev_shm_nodev" role="full" severity="medium" time="2024-07-15T16:48:33-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-mount_option_dev_shm_nodev:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_mount_option_dev_shm_nosuid" role="full" severity="medium" time="2024-07-15T16:48:33-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-mount_option_dev_shm_nosuid:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_service_abrtd_disabled" role="full" severity="medium" time="2024-07-15T16:48:34-06:00" weight="1.000000">
+      <ns0:result>pass</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-service_abrtd_disabled:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_service_ntpdate_disabled" role="full" severity="low" time="2024-07-15T16:48:36-06:00" weight="1.000000">
+      <ns0:result>pass</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-service_ntpdate_disabled:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_service_oddjobd_disabled" role="full" severity="medium" time="2024-07-15T16:48:38-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-service_oddjobd_disabled:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_service_qpidd_disabled" role="full" severity="low" time="2024-07-15T16:48:40-06:00" weight="1.000000">
+      <ns0:result>pass</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-service_qpidd_disabled:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_service_rdisc_disabled" role="full" severity="medium" time="2024-07-15T16:48:41-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-service_rdisc_disabled:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_service_atd_disabled" role="full" severity="medium" time="2024-07-15T16:48:43-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-service_atd_disabled:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_mac_modification" role="full" severity="medium" time="2024-07-15T16:48:43-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_mac_modification:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_media_export" role="full" severity="medium" time="2024-07-15T16:48:43-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_media_export:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_networkconfig_modification" role="full" severity="medium" time="2024-07-15T16:48:43-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_networkconfig_modification:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_sysadmin_actions" role="full" severity="medium" time="2024-07-15T16:48:43-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_sysadmin_actions:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_usergroup_modification" role="full" severity="medium" time="2024-07-15T16:48:43-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_usergroup_modification:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_dac_modification_chmod" role="full" severity="medium" time="2024-07-15T16:48:43-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_dac_modification_chmod:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_dac_modification_chown" role="full" severity="medium" time="2024-07-15T16:48:43-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_dac_modification_chown:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_dac_modification_fchmod" role="full" severity="medium" time="2024-07-15T16:48:43-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_dac_modification_fchmod:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_dac_modification_fchmodat" role="full" severity="medium" time="2024-07-15T16:48:43-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_dac_modification_fchmodat:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_dac_modification_fchown" role="full" severity="medium" time="2024-07-15T16:48:43-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_dac_modification_fchown:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_dac_modification_fchownat" role="full" severity="medium" time="2024-07-15T16:48:43-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_dac_modification_fchownat:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_dac_modification_fremovexattr" role="full" severity="medium" time="2024-07-15T16:48:43-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_dac_modification_fremovexattr:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_dac_modification_fsetxattr" role="full" severity="medium" time="2024-07-15T16:48:43-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_dac_modification_fsetxattr:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_dac_modification_lchown" role="full" severity="medium" time="2024-07-15T16:48:43-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_dac_modification_lchown:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_dac_modification_lremovexattr" role="full" severity="medium" time="2024-07-15T16:48:43-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_dac_modification_lremovexattr:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_dac_modification_lsetxattr" role="full" severity="medium" time="2024-07-15T16:48:43-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_dac_modification_lsetxattr:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_dac_modification_removexattr" role="full" severity="medium" time="2024-07-15T16:48:43-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_dac_modification_removexattr:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_dac_modification_setxattr" role="full" severity="medium" time="2024-07-15T16:48:43-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_dac_modification_setxattr:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_file_deletion_events" role="full" severity="medium" time="2024-07-15T16:48:43-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_file_deletion_events:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_unsuccessful_file_modification" role="full" severity="medium" time="2024-07-15T16:48:43-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_unsuccessful_file_modification:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_kernel_module_loading" role="full" severity="medium" time="2024-07-15T16:48:43-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_kernel_module_loading:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_privileged_commands" role="full" severity="medium" time="2024-07-15T16:48:54-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_privileged_commands:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_privileged_commands_at" role="full" severity="medium" time="2024-07-15T16:48:54-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_privileged_commands_at:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_privileged_commands_chage" role="full" severity="medium" time="2024-07-15T16:48:54-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_privileged_commands_chage:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_privileged_commands_chsh" role="full" severity="medium" time="2024-07-15T16:48:54-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_privileged_commands_chsh:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_privileged_commands_crontab" role="full" severity="medium" time="2024-07-15T16:48:54-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_privileged_commands_crontab:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_privileged_commands_gpasswd" role="full" severity="medium" time="2024-07-15T16:48:54-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_privileged_commands_gpasswd:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_privileged_commands_mount" role="full" severity="medium" time="2024-07-15T16:48:54-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_privileged_commands_mount:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_privileged_commands_newgrp" role="full" severity="medium" time="2024-07-15T16:48:54-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_privileged_commands_newgrp:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_privileged_commands_pam_timestamp_check" role="full" severity="medium" time="2024-07-15T16:48:54-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_privileged_commands_pam_timestamp_check:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_privileged_commands_passwd" role="full" severity="medium" time="2024-07-15T16:48:54-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_privileged_commands_passwd:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_privileged_commands_postdrop" role="full" severity="medium" time="2024-07-15T16:48:54-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_privileged_commands_postdrop:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_privileged_commands_postqueue" role="full" severity="medium" time="2024-07-15T16:48:54-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_privileged_commands_postqueue:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_privileged_commands_ssh_keysign" role="full" severity="medium" time="2024-07-15T16:48:54-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_privileged_commands_ssh_keysign:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_privileged_commands_su" role="full" severity="medium" time="2024-07-15T16:48:54-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_privileged_commands_su:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_privileged_commands_sudo" role="full" severity="medium" time="2024-07-15T16:48:54-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_privileged_commands_sudo:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_privileged_commands_sudoedit" role="full" severity="medium" time="2024-07-15T16:48:54-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_privileged_commands_sudoedit:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_privileged_commands_umount" role="full" severity="medium" time="2024-07-15T16:48:54-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_privileged_commands_umount:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_privileged_commands_unix_chkpwd" role="full" severity="medium" time="2024-07-15T16:48:54-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_privileged_commands_unix_chkpwd:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_privileged_commands_userhelper" role="full" severity="medium" time="2024-07-15T16:48:54-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_privileged_commands_userhelper:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_privileged_commands_usernetctl" role="full" severity="medium" time="2024-07-15T16:48:54-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_privileged_commands_usernetctl:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_time_adjtimex" role="full" severity="medium" time="2024-07-15T16:48:54-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_time_adjtimex:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_time_clock_settime" role="full" severity="medium" time="2024-07-15T16:48:54-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_time_clock_settime:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_time_settimeofday" role="full" severity="medium" time="2024-07-15T16:48:54-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_time_settimeofday:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_time_stime" role="full" severity="medium" time="2024-07-15T16:48:54-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_time_stime:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:rule-result idref="xccdf_org.ssgproject.content_rule_audit_rules_time_watch_localtime" role="full" severity="medium" time="2024-07-15T16:48:54-06:00" weight="1.000000">
+      <ns0:result>fail</ns0:result>
+      <ns0:check system="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+        <ns0:check-content-ref href="ssg-ol8-oval.xml" name="oval:ssg-audit_rules_time_watch_localtime:def:1" />
+      </ns0:check>
+    </ns0:rule-result>
+    <ns0:score maximum="100.000000" system="urn:xccdf:scoring:default">32.986111</ns0:score>
+  </TestResult>

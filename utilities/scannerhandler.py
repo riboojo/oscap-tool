@@ -9,6 +9,8 @@ import subprocess
 from utilities.databasehandler import OscapDatabase
 from utilities.reportshandler import OscapReports
 
+EXIT_ERROR = 1
+
 class OscapScanner(object):
     """ Handle the four functionality of the tool """
 
@@ -26,14 +28,17 @@ class OscapScanner(object):
         xccdf_filename = f'/usr/share/xml/scap/ssg/content/' + xccdf
 
         # Run the oscap command with stig profile and ssg-ol8-xccdf
-        subprocess.run(['oscap', 'xccdf', 'eval', '--profile', profile, '--results', result_filename, xccdf_filename], check=False)
+        result = subprocess.run(['oscap', 'xccdf', 'eval', '--profile', profile, '--results', result_filename, xccdf_filename], check=False)
 
-        # Start database connection, perform query and clos connection
-        self.db.open()
-        self.db.add_scan(current_time, result_filename)
-        self.db.close()
+        if (EXIT_ERROR == result.returncode):
+            logging.error(f'Please make sure that the provided xcddf file and profile are valid')
+        else:
+            # Start database connection, perform query and clos connection
+            self.db.open()
+            self.db.add_scan(current_time, result_filename)
+            self.db.close()
 
-        self.reports.parse_xml(result_filename)
+            self.reports.parse_xml(result_filename)
 
     def read_history(self):
         """ Function to retrieve the scans history """
@@ -103,3 +108,4 @@ class OscapScanner(object):
             self.compare_reports(args.get('frm'), args.get('to'))
         else:
             logging.error(f"{command} is not recognized as a valid command")
+
