@@ -11,6 +11,7 @@ You can find the official releases under **/rel** branch (**/main** branch is no
 | 1.3     | 07-08-2024             | rbojorquez   | Improve the history table format    |
 | 1.4     | 07-11-2024             | rbojorquez   | Enforce cli usage with subcommands    |
 | 1.5     | 07-11-2024             | rbojorquez   | Add logging functionality    |
+| 2.0     | 07-15-2024             | rbojorquez   | Use constants for the queries <br> Make able to compare results from different profiles <br> Use a more disk efficient wat to store results <br> Fix: Database entry created even when bad xccdf/profile provided <br> Fix Pylint warnings   |
 
 
 ## Preconditions
@@ -50,6 +51,12 @@ You can perform any of the existing functionality with one line command input as
 $ python3 oscaptool.py scan --xccdf ssg-ol8-xccdf.xml --profile xccdf_org.ssgproject.content_profile_stig
 ```
 
+or
+
+```console
+$ python3 oscaptool.py scan -x ssg-ol8-xccdf.xml -p xccdf_org.ssgproject.content_profile_stig
+```
+
 You can check the available XCCDF files with:
 
 ```console
@@ -74,14 +81,32 @@ $ python3 oscaptool.py history
 $ python3 oscaptool.py consult --frm 1
 ```
 
+or 
+
+```console
+$ python3 oscaptool.py consult -f 1
+```
+
 ***To compare the scan report with id 1 against the one with id 2***
 
 ```console
 $ python3 oscaptool.py compare --frm 1 --to 2
 ```
 
+or
+
+```console
+$ python3 oscaptool.py compare -f 1 -t 2
+```
+
 ***To configure a specific log level for the tool execution***
 ```console
 $ python3 oscaptool.py --loglevel ERROR scan
+```
+
+or
+
+```console
+$ python3 oscaptool.py -l ERROR scan
 ```
 **_NOTE:_** Default log level is set to INFO and works for any feature

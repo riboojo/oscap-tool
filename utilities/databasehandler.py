@@ -4,7 +4,7 @@
 """
 
 import sqlite3
-import logging
+#import logging
 
 class OscapDatabase(object):
     """ Handles the interaction with the database """
@@ -38,7 +38,7 @@ class OscapDatabase(object):
         self.create_table()
 
     def create_table(self):
-        """ Function to create the scans table containing the scan id, timestamp, result/report paths """
+        """ Function to create scans table containing scan id, timestamp, result/report paths """
 
         self.cursor.execute(self.QUERY_CREATE_TABLE)
         self.connection.commit()
